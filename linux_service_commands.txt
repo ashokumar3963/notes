@@ -1,0 +1,44 @@
+Services:
+1. to start
+    service httpd start
+          or
+    systemctl start httpd
+    (HTTPD is a apache webserver)
+2. to stop
+    systemctl stop httpd
+3. to check status
+    systemctl status httpd
+4. to configure httpd to start at startup (automatically)
+    systemctl enable httpd
+5. to disable at bootup
+    systemctl disable httpd
+
+Steps to configure a program as a service
+  1. in linux goto etc/systemd/system folder create new file with name:
+    my_app.service
+
+    [Service]
+    ExecStart= java -jar lux.war
+  2. let daemon service reload to configure newly created service above
+    systemctl daemon-reload
+  3. now start the service
+    systemctl start my_app
+  4. to enable service to start at bootup
+    edit the .service file of your app
+    add
+    [Install]
+    WantedBy=multi-user.target
+  4. run command 
+    systemctl enable my_app
+  5. you can add metadata about service using [Unit] Description directive
+    [Unit]
+    Description=this is my app
+  6. to run some command or script before and after ExecStart 
+    ExecStartPre= before.sh
+    ExecStartPost= after.sh
+  7. to restart always
+    Restart=always
+
+
+
+      
