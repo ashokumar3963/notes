@@ -1,0 +1,18 @@
+1. ip link
+    to list and modify interfaces on the host
+
+2. ip addr
+    to see  ip addresses assiged to those interfaces
+
+3. ip addr add 192.168.0.1/24 dev eth0
+    to set the ip address on the interface
+
+persist these commonads in HC Network interface file
+
+4. ip route (or) route
+  to see routing table
+5. ip route add 192.168.0.1/24 via 192.169.2.1
+  to add entries in the routing table
+
+6. cat /proc/sys/net/ipv4/ip_forward
+  to check ip forwarding is enable or not
